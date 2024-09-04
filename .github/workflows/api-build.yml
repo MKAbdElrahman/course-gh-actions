@@ -1,0 +1,14 @@
+name: api-build
+on:
+    push:
+        paths: 
+            - " .github/workflows/api-build.yml"
+            - "api/**"
+    workflow_dispatch:
+jobs:
+    build:
+        name: go-build-api
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - run: go build  -o ./bin/api .
